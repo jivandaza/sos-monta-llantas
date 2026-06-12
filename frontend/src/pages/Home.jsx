@@ -2,7 +2,16 @@ import { Link } from 'react-router-dom'
 import { gallery } from '../data/gallery'
 import { testimonials } from '../data/testimonials'
 
-function Home({ businessName, logoSrc, whatsappUrl }) {
+function Home({
+  businessName,
+  seoBusinessName,
+  logoSrc,
+  whatsappUrl,
+  phoneDisplay,
+  phoneHref,
+  coverageAreas,
+  address,
+}) {
   const highlights = [
     {
       label: 'Siempre listos',
@@ -27,20 +36,38 @@ function Home({ businessName, logoSrc, whatsappUrl }) {
     'Revision y presion',
   ]
 
+  const seoServices = [
+    'Monta llantas a domicilio',
+    'Cambio de llantas a domicilio',
+    'Reparacion de llantas a domicilio',
+    'Asistencia vial por llanta pinchada',
+  ]
+
+  const benefits = [
+    'Atencion 24 horas los 7 dias de la semana.',
+    'Respuesta por WhatsApp y llamada para coordinar rapido.',
+    'Apoyo local en Medellin y San Antonio de Prado.',
+  ]
+
   return (
     <div className="page-content">
       <section className="hero-section">
         <div className="hero-copy">
           <span className="eyebrow">Asistencia vial y taller mecanico</span>
-          <h1>{businessName}</h1>
+          <p className="hero-brand">{seoBusinessName || businessName}</p>
+          <h1>Monta llantas a domicilio 24/7</h1>
           <p className="hero-text">
-            Atencion rapida y confiable para pinchazos, cambios, inflado y venta de llantas en
-            Medellin. Llegamos a tu zona cuando mas lo necesitas.
+            Servicio de monta llantas a domicilio, cambio de llantas, reparacion de pinchazos y
+            asistencia vial rapida en Medellin. Llegamos a tu zona cuando mas lo necesitas.
+          </p>
+          <p className="hero-text hero-text-secondary">
+            {seoBusinessName || businessName} atiende emergencias por llanta pinchada, reemplazo
+            de llantas y apoyo en carretera con disponibilidad 24 horas.
           </p>
 
           <div className="hero-actions">
             <Link to="/servicios" className="button button-primary">
-              Ver Servicios
+              Ver servicios de llantas
             </Link>
             <a
               className="button button-secondary button-pulse"
@@ -48,7 +75,10 @@ function Home({ businessName, logoSrc, whatsappUrl }) {
               target="_blank"
               rel="noreferrer"
             >
-              Pide tu Servicio
+              Solicitar monta llantas por WhatsApp
+            </a>
+            <a className="button button-secondary" href={phoneHref}>
+              Llamar ahora al {phoneDisplay}
             </a>
           </div>
 
@@ -149,8 +179,99 @@ function Home({ businessName, logoSrc, whatsappUrl }) {
         <article className="info-card accent-card">
           <p className="card-kicker">Contacto directo</p>
           <h2>Habla con nosotros por WhatsApp</h2>
-          <p>Un canal rapido para pedir ayuda, consultar disponibilidad y coordinar el servicio.</p>
+          <p>
+            Un canal rapido para pedir ayuda, consultar disponibilidad y coordinar el servicio en
+            tu ubicacion.
+          </p>
         </article>
+      </section>
+
+      <section className="section-block seo-content-section">
+        <div className="section-heading-row">
+          <div>
+            <span className="eyebrow">Servicio local</span>
+            <h2>Servicio de llantas a domicilio con informacion clara y rastreable</h2>
+            <p className="section-subcopy">
+              Publicamos contenido visible para que Google y tus clientes entiendan exactamente que
+              hace {seoBusinessName || businessName}, donde atiende y como pedir ayuda.
+            </p>
+          </div>
+        </div>
+
+        <div className="seo-content-grid">
+          <article className="info-card tall-card">
+            <p className="card-kicker">Servicios</p>
+            <h2>Que atendemos</h2>
+            <ul className="content-list">
+              {seoServices.map((service) => (
+                <li key={service}>{service}</li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="info-card tall-card">
+            <p className="card-kicker">Beneficios</p>
+            <h2>Por que nos contactan</h2>
+            <ul className="content-list">
+              {benefits.map((benefit) => (
+                <li key={benefit}>{benefit}</li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="info-card tall-card">
+            <p className="card-kicker">Cobertura</p>
+            <h2>Zonas de cobertura</h2>
+            <p className="section-copy-compact">
+              Atendemos servicios de monta llantas 24 horas en las siguientes zonas base:
+            </p>
+            <ul className="content-list">
+              {coverageAreas.map((area) => (
+                <li key={area}>{area}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section className="section-block seo-contact-section">
+        <div className="section-heading-row">
+          <div>
+            <span className="eyebrow">Contacto</span>
+            <h2>Telefono, WhatsApp y horario 24/7</h2>
+          </div>
+        </div>
+
+        <div className="contact-grid">
+          <article className="info-card">
+            <p className="card-kicker">Llamado a la accion</p>
+            <h2>Pide asistencia vial por llanta pinchada</h2>
+            <p>
+              Si necesitas cambio de llantas a domicilio o reparacion de llantas a domicilio,
+              contactanos por WhatsApp o llamada para revisar disponibilidad inmediata.
+            </p>
+            <div className="contact-list">
+              <a className="contact-link" href={phoneHref}>
+                Llamar al {phoneDisplay}
+              </a>
+              <a className="contact-link" href={whatsappUrl} target="_blank" rel="noreferrer">
+                Escribir por WhatsApp para solicitar servicio
+              </a>
+              <Link className="contact-link" to="/ubicacion">
+                Ver zonas de cobertura y ubicacion
+              </Link>
+            </div>
+          </article>
+
+          <article className="info-card accent-card">
+            <p className="card-kicker">Horario</p>
+            <h2>Disponibles todos los dias</h2>
+            <p>Horario de atencion: lunes a domingo, 24 horas, sujeto a disponibilidad en ruta.</p>
+            <p className="section-copy-compact">
+              Punto de referencia: {address}. Coordinamos la salida del servicio segun tu ubicacion.
+            </p>
+          </article>
+        </div>
       </section>
 
       <section className="section-block testimonials-section">

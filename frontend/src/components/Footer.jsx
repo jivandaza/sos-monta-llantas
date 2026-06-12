@@ -1,4 +1,13 @@
-function Footer({ businessName, whatsappUrl, instagramUrl, facebookUrl, email }) {
+function Footer({
+  businessName,
+  whatsappUrl,
+  phoneDisplay,
+  phoneHref,
+  address,
+  instagramUrl,
+  facebookUrl,
+  email,
+}) {
   return (
     <footer className="footer">
       <div className="footer-grid">
@@ -7,21 +16,23 @@ function Footer({ businessName, whatsappUrl, instagramUrl, facebookUrl, email })
           <p className="footer-copy">
             Atencion 24/7 para emergencias, cambios, reparacion y revision de llantas.
           </p>
+          <p className="footer-copy footer-address">{address}</p>
         </div>
 
         <div>
           <p className="footer-title">Contacto</p>
           <div className="footer-links">
+            <a href={phoneHref}>Llamar al {phoneDisplay}</a>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">
-              WhatsApp
+              Solicitar servicio por WhatsApp
             </a>
             <a href={instagramUrl} target="_blank" rel="noreferrer">
-              Instagram
+              Ver Instagram del negocio
             </a>
             <a href={facebookUrl} target="_blank" rel="noreferrer">
-              Facebook
+              Ver Facebook del negocio
             </a>
-            <a href={`mailto:${email}`}>{email}</a>
+            <a href={`mailto:${email}`}>Enviar correo a {email}</a>
           </div>
         </div>
 

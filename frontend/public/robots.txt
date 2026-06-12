@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sos-monta-llantas.com/sitemap.xml

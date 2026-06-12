@@ -59,7 +59,7 @@ function Navbar({ businessName, logoSrc, selectedService, whatsappUrl }) {
               rel="noreferrer"
               onClick={closeMenu}
             >
-              WhatsApp
+              WhatsApp de servicio
             </a>
           </div>
         </div>

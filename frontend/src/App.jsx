@@ -10,11 +10,14 @@ import Services from './pages/Services'
 
 const BUSINESS_INFO = {
   name: 'SOS Monta LLantas 24/7',
+  seoName: 'SOS Monta Llantas',
   whatsappNumber: '573002143130',
+  phoneDisplay: '+57 300 214 3130',
   instagramUrl: 'https://www.instagram.com/sosllantassos',
   facebookUrl: 'https://www.facebook.com/share/18bDcb1uwm/',
   email: 'Sosllantas24y7.@gmail.com',
   address: 'Medellin, Colombia. Calle 56a sur cra 62b-68 limonar 1 san Antonio de Prado',
+  coverageAreas: ['Medellin', 'San Antonio de Prado', 'sectores cercanos del area metropolitana'],
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Medellin%2C%20Colombia.%20Calle%2056a%20sur%20cra%2062b-68%20limonar%201%20san%20Antonio%20de%20Prado',
 }
@@ -46,8 +49,13 @@ function App() {
             element={
               <Home
                 businessName={BUSINESS_INFO.name}
+                seoBusinessName={BUSINESS_INFO.seoName}
                 logoSrc={logoImage}
                 whatsappUrl={getWhatsAppUrl()}
+                phoneDisplay={BUSINESS_INFO.phoneDisplay}
+                phoneHref={`tel:+${BUSINESS_INFO.whatsappNumber}`}
+                coverageAreas={BUSINESS_INFO.coverageAreas}
+                address={BUSINESS_INFO.address}
               />
             }
           />
@@ -78,6 +86,9 @@ function App() {
       <Footer
         businessName={BUSINESS_INFO.name}
         whatsappUrl={getWhatsAppUrl()}
+        phoneDisplay={BUSINESS_INFO.phoneDisplay}
+        phoneHref={`tel:+${BUSINESS_INFO.whatsappNumber}`}
+        address={BUSINESS_INFO.address}
         instagramUrl={BUSINESS_INFO.instagramUrl}
         facebookUrl={BUSINESS_INFO.facebookUrl}
         email={BUSINESS_INFO.email}

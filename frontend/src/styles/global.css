@@ -276,11 +276,23 @@ p {
   color: #ffffff;
 }
 
+.hero-brand {
+  color: #ffd7b1;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .hero-text,
 .section-text {
   max-width: 62ch;
   color: #afbdcf;
   font-size: 1.06rem;
+}
+
+.hero-text-secondary {
+  color: #c4d2e0;
 }
 
 .hero-actions,
@@ -690,6 +702,22 @@ p {
   gap: 18px;
 }
 
+.seo-content-grid,
+.contact-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.seo-content-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 24px;
+}
+
+.contact-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 24px;
+}
+
 .section-grid-two,
 .location-grid {
   display: grid;
@@ -768,6 +796,10 @@ p {
   margin-top: 12px;
   max-width: 64ch;
   color: #5f7185;
+}
+
+.section-copy-compact {
+  color: #57697c;
 }
 
 .tall-card {
@@ -1033,19 +1065,67 @@ p {
   color: #ffffff;
 }
 
+.content-list,
+.contact-list {
+  margin: 0;
+  padding: 0;
+}
+
+.content-list {
+  display: grid;
+  gap: 10px;
+  padding-left: 20px;
+  color: #4f6174;
+}
+
+.content-list li::marker {
+  color: #ff7e36;
+}
+
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.contact-link {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 44px;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 14px;
+  color: #112235;
+  background: #f4f7fb;
+  border: 1px solid #e0e8f0;
+  font-weight: 700;
+}
+
+.contact-link:hover {
+  border-color: #ff7e36;
+}
+
+.footer-address {
+  margin-top: 12px;
+}
+
 @media (max-width: 1024px) {
   .hero-section,
   .section-grid-two,
   .location-grid,
   .services-grid,
-  .footer-grid {
+  .footer-grid,
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 
   .section-grid-three,
   .benefits-grid,
   .hero-service-grid,
-  .testimonials-grid {
+  .testimonials-grid,
+  .seo-content-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1186,7 +1266,8 @@ p {
   .section-grid-three,
   .benefits-grid,
   .testimonials-grid,
-  .gallery-grid {
+  .gallery-grid,
+  .seo-content-grid {
     grid-template-columns: 1fr;
   }
 
